@@ -1,4 +1,7 @@
 # Prothombot1
+[![Static Badge](https://img.shields.io/badge/Telegram-Bot-0088cc?logo=telegram)](https://telegram.org/blog/bot-revolution)
+[![Static Badge](https://img.shields.io/badge/Twitter-API-black?logo=x&logoColor=%23454444&labelColor=white)](https://developer.twitter.com/en/)
+<br>
 A [telegram bot](https://t.me/prothom1bot) that could convert any twitter/X url into wikipedia {{[Cite tweet](https://en.wikipedia.org/wiki/Template:Cite_tweet)}} Template to use in Wikipedia.
 > Required libraries:
 > ```python

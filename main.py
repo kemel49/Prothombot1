@@ -31,7 +31,7 @@ def convert_to_cite_x(url):
         return "Tweet not found or doesn't exist."
 
     # Generate the {{Cite tweet}} template
-    cite_template = f"{{{{Cite tweet |user={username} |number={tweet_id} |title={tweet_text} |access-date={{{{subst:Date}}}}}}"
+    cite_template = f"{{{{Cite tweet |user={username} |number={tweet_id} |title={tweet_text} |access-date={{{{subst:Date}}}}}}}}"
     return cite_template
 
 def send_message(chat_id, text):

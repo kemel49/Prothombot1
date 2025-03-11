@@ -11,7 +11,7 @@ A [telegram bot](https://t.me/prothom1bot) that could convert any twitter/X url 
 > - Telegram Bot API
 > - Twitter developer bearer token
 ## Background
-[Citer tool on toolforge](https://citer.toolforge.org/) is a perfect example of how ProthomBot exactly works. It was [suggested to include the same facility](https://meta.wikimedia.org/wiki/User_talk:Dalba#Suggestion_to_include_tweeter_template) in citer tool, but twitter/X done very well with their system so it's impossible to get the title parameter for {{Cite tweet}} template.
+[Citer tool on toolforge](https://citer.toolforge.org/) is a perfect example of how this bot exactly works. It was [suggested to include the same facility](https://meta.wikimedia.org/wiki/User_talk:Dalba#Suggestion_to_include_tweeter_template) in citer tool too but due to limitation on Twitter/X API usage it has not  implemented.
 ## Function
 This Telegram Bot can convert any twitter/X url into Wikipedia Citation family template {{Cite tweet}}
 > Example:

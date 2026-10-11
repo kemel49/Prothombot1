@@ -1,37 +1,83 @@
 # Prothombot1
-[![Static Badge](https://img.shields.io/badge/Telegram-Bot-0088cc?logo=telegram)](https://telegram.org/blog/bot-revolution)
-[![Static Badge](https://img.shields.io/badge/Twitter-API-black?logo=x&logoColor=%23454444&labelColor=white)](https://developer.twitter.com/en/)
-<br>
-A [telegram bot](https://t.me/prothom1bot) that could convert any twitter/X url into wikipedia {{[Cite tweet](https://en.wikipedia.org/wiki/Template:Cite_tweet)}} Template to use in Wikipedia.
-> Required libraries:
-> ```python
-> pip install re requests tweepy
-> ```
-> Required credentials:
-> - Telegram Bot API
-> - Twitter developer bearer token
-## Background
-[Citer tool on toolforge](https://citer.toolforge.org/) is a perfect example of how this bot exactly works. It was [suggested to include the same facility](https://meta.wikimedia.org/wiki/User_talk:Dalba#Suggestion_to_include_tweeter_template) in citer tool too but due to limitation on Twitter/X API usage it has not  implemented.
-## Function
-This Telegram Bot can convert any twitter/X url into Wikipedia Citation family template {{Cite tweet}}
-> Example:
-> `https://x.com/anyuser/status/20` will produce
-> ```wikitext
-> {{Cite tweet |user=anyuser |title=Tweet content |number=20 |access-date={{subst:Date}}}}
-> ```
-## Known issue
-- Due to rate limit in twitter api usage, you may encounter reply like `Tweet not found or doesn't exist.` this is because the twitter API cannot provide required data. You can prevent this issue by removing all tweepy functions and filling the title parameter manually.
-- Line breaks will be rendered as it is, while wikipedia would throw error at line break. remember to remove line break in title field.
-- You have to add an additional `|date` field with original tweet date, if you are using tweet posted before November 4, 2010 UTC.
 
-## Licence
-[![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
+A Telegram bot that converts a Twitter/X post URL into a Wikipedia-compatible `{{Cite tweet}}` template.
 
-This work is licensed under a
-[Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
+## Overview
 
-[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
+This bot listens for Telegram messages, checks whether the message is a valid Twitter/X URL, fetches the tweet text, and returns a ready-to-paste citation template for Wikipedia.
 
-[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
-[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
-[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
+It was designed to simplify the workflow of generating citation snippets similar to the behavior of tools like [Citer](https://citer.toolforge.org/).
+
+## Features
+
+- Accepts links in the format:
+  - `https://x.com/username/status/1234567890`
+  - `https://twitter.com/username/status/1234567890`
+- Fetches tweet text via the Twitter/X API
+- Produces a Wikipedia-style `{{Cite tweet}}` template
+- Sends the generated result back to the Telegram chat
+
+## Requirements
+
+- Python 3
+- Telegram Bot API token
+- Twitter/X bearer token
+- Python packages:
+  - `requests`
+  - `tweepy`
+
+## Installation
+
+Install the required dependencies:
+
+```bash
+pip install requests tweepy
+```
+
+## Configuration
+
+Open `main.py` and set your credentials:
+
+```python
+BOT_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"
+bearer_token = "YOUR_TWITTER_BEARER_TOKEN"
+```
+
+## Run the bot
+
+```bash
+python main.py
+```
+
+## Usage
+
+Send a valid Twitter/X URL to the bot.
+
+Example:
+
+```text
+https://x.com/anyuser/status/20
+```
+
+The bot will return a template similar to:
+
+```wikitext
+{{Cite tweet |user=anyuser |number=20 |title=Tweet content |access-date={{subst:Date}}}}
+```
+
+## Telegram commands
+
+- `/start` — starts the bot
+- `/help` — shows example usage
+
+## Notes and limitations
+
+- The bot depends on the Twitter/X API, which may rate-limit requests.
+- Some tweets may fail to load if they are unavailable or restricted.
+- Some older tweets may require an additional `|date` field.
+- Line breaks in tweet content can break Wikipedia wikitext formatting and may need manual cleanup.
+- Always review the generated template before pasting it into Wikipedia.
+
+## Acknowledgements
+
+This project is inspired by the idea of generating Wikipedia-friendly tweet citations using structured templates.

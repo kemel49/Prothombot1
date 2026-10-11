@@ -1,5 +1,7 @@
 # Prothombot1
-
+[![Static Badge](https://img.shields.io/badge/Telegram-Bot-0088cc?logo=telegram)](https://telegram.org/blog/bot-revolution)
+[![Static Badge](https://img.shields.io/badge/Twitter-API-black?logo=x&logoColor=%23454444&labelColor=white)](https://developer.twitter.com/en/)
+<br>
 A Telegram bot that converts a Twitter/X post URL into a Wikipedia-compatible `{{Cite tweet}}` template.
 
 ## Overview
